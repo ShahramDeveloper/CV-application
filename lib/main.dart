@@ -13,20 +13,30 @@ class Application extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
       home: Scaffold(
-        appBar: getAppBar(),
-        body: SafeArea(child: Text('شهرام آکادمی')),
+        appBar: _getAppBar(),
+        body: SafeArea(child: _getMainBody()),
       ),
     );
   }
-}
 
-PreferredSizeWidget getAppBar() {
-  return AppBar(
-    elevation: 10,
-    backgroundColor: Colors.green,
-    title: Text(
-      'شهرام حسین زاده',
-      style: TextStyle(color: Colors.white),
-    ),
-  );
+  PreferredSizeWidget _getAppBar() {
+    return AppBar(
+      elevation: 10,
+      backgroundColor: Colors.green,
+      title: Text(
+        'شهرام حسین زاده',
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget _getMainBody() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text('Shahram Hosseinzadeh'),
+        ],
+      ),
+    );
+  }
 }
