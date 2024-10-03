@@ -13,8 +13,20 @@ class Application extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
       home: Scaffold(
+        appBar: getAppBar(),
         body: SafeArea(child: Text('شهرام آکادمی')),
       ),
     );
   }
+}
+
+PreferredSizeWidget getAppBar() {
+  return AppBar(
+    elevation: 10,
+    backgroundColor: Colors.green,
+    title: Text(
+      'شهرام حسین زاده',
+      style: TextStyle(color: Colors.white),
+    ),
+  );
 }
