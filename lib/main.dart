@@ -15,7 +15,7 @@ class Application extends StatelessWidget {
       theme: ThemeData(fontFamily: 'vazir'),
       home: Scaffold(
         appBar: _getAppBar(),
-        body: SafeArea(child: _getMainBody()),
+        body: SafeArea(child: _getMainContent()),
       ),
     );
   }
@@ -31,7 +31,7 @@ class Application extends StatelessWidget {
     );
   }
 
-  Widget _getMainBody() {
+  Widget _getMainContent() {
     return SingleChildScrollView(
       child: Column(
         children: [_getHeader()],
@@ -63,7 +63,9 @@ class Application extends StatelessWidget {
               SizedBox(height: 12),
               _getRowIcons(),
               SizedBox(height: 12),
-              _getSkillCards()
+              _getSkillCards(),
+              SizedBox(height: 12),
+              _getResume()
             ],
           ),
         ),
@@ -124,6 +126,44 @@ class Application extends StatelessWidget {
               ],
             ),
           ),
+      ],
+    );
+  }
+
+  Widget _getResume() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      width: double.infinity,
+      color: Colors.grey[100],
+      child: Column(
+        children: [
+          Text(
+            'سابقه کاری من',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          _getHistoryColumn()
+        ],
+      ),
+    );
+  }
+
+  Widget _getHistoryColumn() {
+    var myResumeList = [
+      '۴ سال سابقه برنامه نویسی',
+      'برگزار کننده چندین سمینار آموزشی',
+      'کسب مقام اول در چالش Dunijet',
+      'بهترین دانشجو دوره یاقوت اندروید',
+      'آموزش برنامه نویسی از سال ۱۴۰۰',
+      'مدرس و بنیان گذار Shahram Academy'
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        SizedBox(width: double.infinity, height: 10),
+        for (var item in myResumeList)
+          Text(item, textDirection: TextDirection.rtl),
       ],
     );
   }
