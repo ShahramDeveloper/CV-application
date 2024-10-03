@@ -61,7 +61,9 @@ class Application extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 12),
-              _getRowIcons()
+              _getRowIcons(),
+              SizedBox(height: 12),
+              _getSkillCards()
             ],
           ),
         ),
@@ -93,6 +95,35 @@ class Application extends StatelessWidget {
           icon: FaIcon(FontAwesomeIcons.github),
           color: Colors.blueGrey,
         ),
+      ],
+    );
+  }
+
+  Widget _getSkillCards() {
+    var list = ['android', 'flutter', 'dart', 'kotlin', 'java'];
+
+    return Wrap(
+      children: [
+        for (var skillTitle in list)
+          Card(
+            elevation: 10,
+            shadowColor: Colors.green,
+            child: Column(
+              children: [
+                Container(
+                  height: 80.0,
+                  child: Image(
+                    image: AssetImage('images/$skillTitle.png'),
+                    width: 60.0,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(skillTitle),
+                )
+              ],
+            ),
+          ),
       ],
     );
   }
