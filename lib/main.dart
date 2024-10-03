@@ -142,6 +142,7 @@ class Application extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: 10),
           _getHistoryColumn()
         ],
       ),
@@ -150,7 +151,7 @@ class Application extends StatelessWidget {
 
   Widget _getHistoryColumn() {
     var myResumeList = [
-      '۴ سال سابقه برنامه نویسی',
+      '۴ سال سابقه کد نویسی',
       'برگزار کننده چندین سمینار آموزشی',
       'کسب مقام اول در چالش Dunijet',
       'بهترین دانشجو دوره یاقوت اندروید',
@@ -159,12 +160,18 @@ class Application extends StatelessWidget {
     ];
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        SizedBox(width: double.infinity, height: 10),
-        for (var item in myResumeList)
-          Text(item, textDirection: TextDirection.rtl),
-      ],
+      children: myResumeList.map(
+        (item) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(width: double.infinity),
+              Text(item, textDirection: TextDirection.rtl),
+              SizedBox(height: 7),
+            ],
+          );
+        },
+      ).toList(),
     );
   }
 }
